@@ -13,6 +13,7 @@ from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 
 from models.schemas import AnalyzeRequest, AnalyzeResponse, Vulnerability
+from routes.auth import validate_api_key
 from services.claude import analyze_code
 from services.redis import check_rate_limit, increment_usage
 
@@ -25,8 +26,6 @@ router = APIRouter()
 SUPPORTED_LANGUAGES = {"python", "javascript", "typescript", "java", "php", "go"}
 MAX_CODE_BYTES = 50 * 1024  # 50 KB
 
-# TODO: replace with a real auth mechanism (DB lookup / JWT) before production.
-VALID_API_KEYS = {"test-key-123"}
 
 
 # ── Endpoint ──────────────────────────────────────────────────────────────────
@@ -46,7 +45,7 @@ VALID_API_KEYS = {"test-key-123"}
 )
 async def analyze(request: AnalyzeRequest) -> JSONResponse:
     # 1. Validate API key ──────────────────────────────────────────────────────
-    if not request.api_key or request.api_key not in VALID_API_KEYS:
+    if not request.api_key or not validate_api_key(request.api_key):
         raise HTTPException(status_code=401, detail="Invalid or missing API key.")
 
     # 2. Check rate limit ──────────────────────────────────────────────────────
