@@ -19,7 +19,7 @@
         },
         "guardrail.apiUrl": {
           "type": "string",
-          "default": "https://your-railway-url.railway.app",
+          "default": "https://guardrail-production-70ef.up.railway.app",
           "description": "Guardrail API endpoint"
         },
         "guardrail.enabled": {
