@@ -1,0 +1,80 @@
+# ── Secrets & environment ──────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ── Python (API) ───────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+.installed.cfg
+lib/
+lib64/
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env.bak
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# mypy / ruff / pyright caches
+.mypy_cache/
+.ruff_cache/
+pyrightconfig.json
+
+# ── Node / VS Code Extension ───────────────────────────────────────────────────
+node_modules/
+out/
+dist/
+*.vsix
+.vscode-test/
+*.js.map
+
+# npm / yarn lockfiles (keep one, ignore the other)
+# yarn.lock  # uncomment if using yarn
+
+# ── VS Code workspace ──────────────────────────────────────────────────────────
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# ── macOS ──────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# ── Docker ─────────────────────────────────────────────────────────────────────
+*.log
+
+# ── JetBrains / editors ────────────────────────────────────────────────────────
+.idea/
+*.iml
+*.swp
+*.swo
+*~
