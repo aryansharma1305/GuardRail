@@ -1,0 +1,52 @@
+{
+  "name": "guardrail",
+  "displayName": "Guardrail — Security Scanner",
+  "description": "Real-time security vulnerability detection for AI-generated code",
+  "version": "0.0.1",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Linters", "Other"],
+  "keywords": ["security", "guardrail", "cursor", "vulnerability", "AI", "scanner"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Guardrail",
+      "properties": {
+        "guardrail.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your Guardrail API key"
+        },
+        "guardrail.apiUrl": {
+          "type": "string",
+          "default": "https://your-railway-url.railway.app",
+          "description": "Guardrail API endpoint"
+        },
+        "guardrail.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable Guardrail scanning"
+        },
+        "guardrail.minSeverity": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"],
+          "default": "low",
+          "description": "Minimum severity level to show"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
