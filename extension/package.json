@@ -3,6 +3,7 @@
   "displayName": "Guardrail — Security Scanner",
   "description": "Real-time security vulnerability detection for AI-generated code",
   "version": "0.0.1",
+  "icon": "icon.png",
   "engines": { "vscode": "^1.85.0" },
   "categories": ["Linters", "Other"],
   "keywords": ["security", "guardrail", "cursor", "vulnerability", "AI", "scanner"],
